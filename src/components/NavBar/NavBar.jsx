@@ -78,7 +78,7 @@ const NavBar = ({ user }) => {
               <li ref={modalRef}>
                 <a onClick={handleModal}>
                   <img
-                    src={`http://127.0.0.1:8000${user.user_image}`}
+                    src={`${process.env.REACT_APP_API_URL}${user.user_image}`}
                     id={classes.profile}
                     alt="Icone de Perfil"
                   />

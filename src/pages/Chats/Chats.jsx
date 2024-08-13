@@ -34,7 +34,7 @@ function Chats({roomName, selectUser}) {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:8000/chat/messages`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/chat/messages`, {
         params: { room_name: roomName },
         headers: {
           Authorization: `Bearer ${token}`,
@@ -53,7 +53,7 @@ function Chats({roomName, selectUser}) {
 
   const fetchSelectUser = async () =>{
     try{
-      const response = await axios.get(`http://127.0.0.1:8000/users/usuario/${parseInt(selectUser)}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/usuario/${parseInt(selectUser)}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -69,7 +69,7 @@ function Chats({roomName, selectUser}) {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/users/perfil", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/perfil`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -93,7 +93,7 @@ function Chats({roomName, selectUser}) {
       fetchMessages();
       fetchSelectUser();
       ws.current = new WebSocket(
-        `ws://127.0.0.1:8000/ws/chat/${roomName}/?user_id=${currentUser.id}`
+        `ws://${process.env.REACT_APP_API_URL}/ws/chat/${roomName}/?user_id=${currentUser.id}`
       );
 
       ws.current.onopen = () => {
@@ -223,7 +223,7 @@ const onEmojiSelect = (emoji) => {
   return (
     <div className={style.chat} id="chat">
       <div className={style.chatHeader} id="chatHeader">
-        <img src={`http://127.0.0.1:8000${selectionUser.user_image}`} className={style.chatFoto} id="chatFoto" alt="Foto de Perfil" />
+        <img src={`${process.env.REACT_APP_API_URL}${selectionUser.user_image}`} className={style.chatFoto} id="chatFoto" alt="Foto de Perfil" />
         <p className={style.chatNome} id="chatNome">{selectionUser.user_name}</p>
       </div>
       <div className={style.chatMensagens} id="chatMensagens" ref={chatContainerRef}>

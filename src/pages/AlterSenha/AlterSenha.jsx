@@ -56,7 +56,7 @@ const AlterSenha = () => {
       };
       try {
         const response = await axios.get(
-          `http://127.0.0.1:8000/users/perfil`,
+          `${process.env.REACT_APP_API_URL}/users/perfil`,
           config
         );
         setData(response.data);
@@ -127,7 +127,7 @@ const AlterSenha = () => {
         <>
           <NavBar user={data} />
           <div className={classes.foto}>
-            <img src={`http://127.0.0.1:8000${data.user_image}`} />
+            <img src={`${process.env.REACT_APP_API_URL}${data.user_image}`} />
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}

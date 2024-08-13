@@ -38,7 +38,7 @@ const home = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/login/login",
+        `${process.env.REACT_APP_API_URL}/login/login`,
         formsData
       );
       

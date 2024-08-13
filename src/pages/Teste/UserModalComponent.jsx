@@ -20,7 +20,7 @@ const Teste = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/users/perfil", {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/perfil`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -37,7 +37,7 @@ const Teste = () => {
     const fetchUsers = async (currentUser) => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/users/pegarAll",
+          `${process.env.REACT_APP_API_URL}/users/pegarAll`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const Teste = () => {
           filteredUsers.map(async (user) => {
             try {
               const unreadResponse = await axios.get(
-                `http://127.0.0.1:8000/users/read_count`,
+                `${process.env.REACT_APP_LINK_API}/users/read_count`,
                 {
                   params: { user_id: user.id },
                   headers: {
@@ -112,7 +112,7 @@ const Teste = () => {
               >
                 <div className={style.foto}>
                   <img
-                    src={`http://127.0.0.1:8000${user.user_image}`}
+                    src={`${process.env.REACT_APP_LINK_API}${user.user_image}`}
                     alt={user.name}
                     className={style.foto}
                   />

@@ -61,7 +61,7 @@ const Hub = () => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:8000/notices/allnotices",
+            `${process.env.REACT_APP_API_URL}/notices/allnotices`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -80,7 +80,7 @@ const Hub = () => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:8000/users/perfil",
+            `${process.env.REACT_APP_API_URL}/users/perfil`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -134,7 +134,7 @@ const Hub = () => {
         formData.append("notice", JSON.stringify(newNews));
         formData.append("image", image);
         const response = await axios.post(
-          "http://127.0.0.1:8000/notices/notices",
+          `${process.env.REACT_APP_API_URL}notices/notices`,
           formData,
           {
             headers: {
@@ -176,7 +176,7 @@ const Hub = () => {
     if (token) {
       try {
         const response = await axios.delete(
-          `http://127.0.0.1:8000/notices/deletando/${id}`,
+          `${process.env.REACT_APP_API_URL}/notices/deletando/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
