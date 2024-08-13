@@ -33,21 +33,21 @@ const home = () => {
   const onSubmit = async (data) => {
     const formsData = {
       user_email: data.user_email,
-      user_password: data.user_password,
+      password: data.password,
     };
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/users/login",
+        "http://127.0.0.1:8000/login/login",
         formsData
       );
-
+      
+      console.log(response.data)
 
       if (response.status === 200) {
-        const token = response.data.token;
+        const token = response.data.access;
         Cookies.set("token", token);
-
-        if (response.data.response.mensagem === "Código de verificação enviado") {
+        if (response.data.mensagem === "Código de verificação enviado") {
           navigate("/notification");
         } else {
           setLoggedIn(true);
@@ -58,24 +58,27 @@ const home = () => {
 
 
     } catch (error) {
-      if (error.response.status === 400) {
-        Toast.fire({
-          icon: "error",
-          title: "Email ou senha incorretos",
-        })
-      }
-      if(error.response.status === 404){
-        Toast.fire({
-          icon: "error",
-          title: "Usuario não encontrado",
-        })
-      }
-      
-      if(error.response.status === 500){
-        Toast.fire({
-          icon: "error",
-          title: "Erro interno do servidor",
-        })
+      console.log(error);
+      if(error.response){
+        if (error.response.status === 401) {
+          Toast.fire({
+            icon: "error",
+            title: "Email ou senha incorretos",
+          })
+        }
+        if(error.response.status === 404){
+          Toast.fire({
+            icon: "error",
+            title: "Usuario não encontrado",
+          })
+        }
+        
+        if(error.response.status === 500){
+          Toast.fire({
+            icon: "error",
+            title: "Erro interno do servidor",
+          })
+        }
       }
       
     }
@@ -96,8 +99,8 @@ const home = () => {
           <br />
           <input
             type="password"
-            name="user_password"
-            {...register("user_password", { required: true })}
+            name="password"
+            {...register("password", { required: true })}
             className={classes.inputText}
             placeholder="Senha"
           />

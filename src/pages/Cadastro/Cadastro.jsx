@@ -22,12 +22,13 @@ const formsTemplate = {
   user_lastName: "",
   user_birthday: "",
   user_email: "",
-  user_password: "",
+  password: "",
   confirm_password: "",
   user_firstName: "",
   user_idioma: "Português",
   user_games: "CS:GO",
   user_pais: "Brasil",
+  tipo: "atleta",
 }
 
 const Cadastro = () => {
@@ -86,7 +87,7 @@ const Cadastro = () => {
     formData.append('user', JSON.stringify(data));
     formData.append("image", dataImagem);
 
-    if(data.user_password.length < 8){
+    if(data.password.length < 8){
       Toast.fire({
         icon: 'error',
         title: 'A senha deve ter no mínimo 8 caracteres!'
@@ -94,7 +95,7 @@ const Cadastro = () => {
       return;
     }
 
-    if(data.user_password !== data.confirm_password){
+    if(data.password !== data.confirm_password){
       Toast.fire({
         icon: 'error',
         title: 'As senhas não conferem!'
@@ -104,13 +105,13 @@ const Cadastro = () => {
 
 
     try{
-      const response = await axios.post('http://127.0.0.1:8000/api/users/criando', formData, {
+      const response = await axios.post(`http://127.0.0.1:8000/users/criando`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
-
       
+
       if(response.status === 200){
         Toast.fire({
           icon: 'success',

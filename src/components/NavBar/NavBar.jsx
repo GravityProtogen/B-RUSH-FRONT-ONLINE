@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { FaDoorOpen, FaRegNewspaper } from "react-icons/fa";
 import { IoPersonCircle } from "react-icons/io5";
+import { FaUserFriends } from "react-icons/fa";
 
 const NavBar = ({ user }) => {
   const [user_firstName, setUserFirstName] = useState("");
@@ -77,7 +78,7 @@ const NavBar = ({ user }) => {
               <li ref={modalRef}>
                 <a onClick={handleModal}>
                   <img
-                    src={`http://127.0.0.1:8000/${user.user_image}`}
+                    src={`http://127.0.0.1:8000${user.user_image}`}
                     id={classes.profile}
                     alt="Icone de Perfil"
                   />
@@ -88,6 +89,9 @@ const NavBar = ({ user }) => {
                     <div className={classes.conteudo}>
                       <button onClick={() => navigate("/perfil")}>
                         <IoPersonCircle /> Perfil
+                      </button>
+                      <button onClick={() => navigate("/chat")}>
+                        <FaUserFriends /> Amigos
                       </button>
                       <button onClick={() => navigate("/hub")}>
                         <FaRegNewspaper /> Hub

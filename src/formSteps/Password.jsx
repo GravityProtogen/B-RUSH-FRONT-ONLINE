@@ -10,9 +10,9 @@ const Password = ({ data, updateFieldHandler }) => {
       <label htmlFor="">Senha</label>
       <input
         type="password"
-        name="user_password"
-        value={data.user_password || ""}
-        onChange={(e) => updateFieldHandler("user_password", e.target.value)}
+        name="password"
+        value={data.password || ""}
+        onChange={(e) => updateFieldHandler("password", e.target.value)}
         placeholder="Digite sua senha"
       />
       <label htmlFor="">Confirme sua Senha</label>

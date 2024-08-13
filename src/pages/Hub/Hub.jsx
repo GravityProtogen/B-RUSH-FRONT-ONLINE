@@ -61,7 +61,7 @@ const Hub = () => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:8000/api/notices/allnotices",
+            "http://127.0.0.1:8000/notices/allnotices",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -80,7 +80,7 @@ const Hub = () => {
       if (token) {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:8000/api/users/perfil",
+            "http://127.0.0.1:8000/users/perfil",
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -134,7 +134,7 @@ const Hub = () => {
         formData.append("notice", JSON.stringify(newNews));
         formData.append("image", image);
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/notices/notices",
+          "http://127.0.0.1:8000/notices/notices",
           formData,
           {
             headers: {
@@ -176,7 +176,7 @@ const Hub = () => {
     if (token) {
       try {
         const response = await axios.delete(
-          `http://127.0.0.1:8000/api/notices/deletando/${id}`,
+          `http://127.0.0.1:8000/notices/deletando/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -221,7 +221,7 @@ const Hub = () => {
         formData.append("image", image);
 
         const response = await axios.put(
-          `http://127.0.0.1:8000/api/notices/update/${editingId}`,
+          `http://127.0.0.1:8000/notices/update/${editingId}`,
           formData,
           {
             headers: {

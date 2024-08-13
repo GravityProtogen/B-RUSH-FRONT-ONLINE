@@ -56,7 +56,7 @@ const AlterSenha = () => {
       };
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/users/perfil",
+          `http://127.0.0.1:8000/users/perfil`,
           config
         );
         setData(response.data);
@@ -96,7 +96,7 @@ const AlterSenha = () => {
 
     try {
       const response = await axios.put(
-        "http://127.0.0.1:8000/api/users/atualizar_senha",
+        `${process.env.REACT_APP_LINK_API}/users/atualizar_senha`,
         change_password,
         {
           headers: {

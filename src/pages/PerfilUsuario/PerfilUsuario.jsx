@@ -27,7 +27,7 @@ const Perfil = () => {
       if (token) {
         try {
           const response = await axios.get(
-            `http://127.0.0.1:8000/api/users/perfil/${user_name}`,
+            `http://127.0.0.1:8000/users/perfil/${user_name}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ const Perfil = () => {
       if (token) {
         try {
           const response = await axios.get(
-            `http://127.0.0.1:8000/api/users/perfil`,
+            `http://127.0.0.1:8000/users/perfil`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,

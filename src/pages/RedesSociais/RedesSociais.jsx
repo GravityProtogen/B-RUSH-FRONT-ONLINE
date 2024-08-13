@@ -53,7 +53,7 @@ const RedesSociais = () => {
       const token = Cookies.get("token");
       if (token) {
         try {
-          const response = await axios.get("http://127.0.0.1:8000/api/users/perfil", {
+          const response = await axios.get("http://127.0.0.1:8000/users/perfil", {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -71,7 +71,7 @@ const RedesSociais = () => {
     const token = Cookies.get("token");
     try {
       const response = await axios.put(
-        "http://127.0.0.1:8000/api/users/atualizar_redes_sociais",
+        "http://127.0.0.1:8000/users/atualizar_redes_sociais",
         social,
         {
           headers: {

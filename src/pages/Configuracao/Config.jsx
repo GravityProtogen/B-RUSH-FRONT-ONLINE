@@ -26,7 +26,7 @@ const Config = () => {
     const fetchData = async () =>{
       try{
       const token = Cookies.get("token");
-      const response = await axios.get("http://127.0.0.1:8000/api/users/perfil", {
+      const response = await axios.get("http://127.0.0.1:8000/users/perfil", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +58,7 @@ const Config = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         try{
-         const response = axios.delete("http://127.0.0.1:8000/api/users/deletar", {
+         const response = axios.delete("http://127.0.0.1:8000/users/deletar", {
             headers: {
               Authorization: `Bearer ${token}`,
             },

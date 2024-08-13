@@ -49,7 +49,7 @@ const Info = () => {
       };
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/users/perfil",
+          "http://127.0.0.1:8000/users/perfil",
           config
         );
         setData(response.data);
@@ -83,7 +83,7 @@ const Info = () => {
 
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/users/atualizar/${existingData.user_id}`,
+        `http://127.0.0.1:8000/users/atualizar/${existingData.user_id}`,
         formsData,
         {
           headers: {

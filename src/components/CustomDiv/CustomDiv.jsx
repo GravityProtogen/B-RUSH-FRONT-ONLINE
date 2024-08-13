@@ -10,7 +10,7 @@ const CustomDiv = () => {
     useEffect(() =>{
         const token = Cookies.get('token');
         const fetchData = async () => {
-            const response = await axios.get('http://127.0.0.1:8000/api/users/perfil', {
+            const response = await axios.get('http://127.0.0.1:8000/users/perfil', {
                 headers:{
                     Authorization: `Bearer ${token}`
                 }

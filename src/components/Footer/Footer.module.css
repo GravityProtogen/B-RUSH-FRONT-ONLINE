@@ -1,3 +1,8 @@
+
+.footerContainer{
+    background-color: transparent;
+}
+
 .footer{
     position: sticky;
     bottom: 0;

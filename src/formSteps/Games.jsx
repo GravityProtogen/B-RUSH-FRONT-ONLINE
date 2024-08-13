@@ -49,6 +49,19 @@ const Games = ({data, updateFieldHandler}) => {
           </select>
           <div className={classes.select_arrow}></div>
         </div>
+        <label>Tipo de Conta</label>
+        <div className={classes.customselect}>
+          <select
+            name="tipo"
+            value={data.tipo}
+            onChange={(e) => updateFieldHandler("tipo", e.target.value)}
+          >
+            <option value="admin">Administrador</option>
+            <option value="atleta">Atleta</option>
+            <option value="team">Team</option>
+          </select>
+          <div className={classes.select_arrow}></div>
+        </div>
       </div>
     </div>
   );

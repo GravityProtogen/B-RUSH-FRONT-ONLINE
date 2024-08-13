@@ -5,7 +5,7 @@ import Perfil from "./pages/Perfil/Perfil";
 import Config from "./pages/Configuracao/Config";
 import Cadastro from "./pages/Cadastro/Cadastro";
 import Info from "./pages/ConfiguracaoInfo/Info";
-import Teste from "./pages/Teste/Teste";
+import Teste from "./pages/Teste/UserModalComponent";
 import AlterSenha from "./pages/AlterSenha/AlterSenha";
 import Loading from "./components/Loading/Loading";
 import Ajuda from "./pages/Ajuda/Ajuda";
@@ -16,6 +16,10 @@ import PerfilUsuario from "./pages/PerfilUsuario/PerfilUsuario";
 import Notification from "./pages/Notification/Notification";
 import RedeSociais from "./pages/RedesSociais/RedesSociais"; 
 import Hub from "./pages/Hub/Hub";
+import UserModalComponent from './pages/UserListPage/UserModalComponent'
+
+
+import Chats from "./pages/Chats/Chats";
 
 function App() {
   return (
@@ -90,6 +94,10 @@ function App() {
               </PrivateRouter>
             }
           />
+
+          <Route path="/chat" element={<UserModalComponent/>} />
+          <Route path="/chat/:roomName" element={<Chats/>} />
+          
         </Routes>
       </Router>
     </>
