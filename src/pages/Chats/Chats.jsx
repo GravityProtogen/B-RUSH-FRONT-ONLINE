@@ -31,10 +31,12 @@ function Chats({roomName, selectUser}) {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const messagesEndRef = useRef(null);
   const chatContainerRef = useRef(null);
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const baseUrl = apiUrl.startsWith("https://") ? apiUrl.slice(8) : apiUrl;
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/chat/messages`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/chat/messages`, {
         params: { room_name: roomName },
         headers: {
           Authorization: `Bearer ${token}`,
@@ -53,7 +55,7 @@ function Chats({roomName, selectUser}) {
 
   const fetchSelectUser = async () =>{
     try{
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/usuario/${parseInt(selectUser)}`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/usuario/${parseInt(selectUser)}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -69,7 +71,7 @@ function Chats({roomName, selectUser}) {
 
   const fetchCurrentUser = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/perfil`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -93,7 +95,7 @@ function Chats({roomName, selectUser}) {
       fetchMessages();
       fetchSelectUser();
       ws.current = new WebSocket(
-        `ws://${process.env.REACT_APP_API_URL}/ws/chat/${roomName}/?user_id=${currentUser.id}`
+        `wss://${import.meta.env.VITE_API_URL.replace(/^https?:\/\//, '')}/ws/chat/${roomName}/?user_id=${currentUser.id}`
       );
 
       ws.current.onopen = () => {
@@ -223,7 +225,7 @@ const onEmojiSelect = (emoji) => {
   return (
     <div className={style.chat} id="chat">
       <div className={style.chatHeader} id="chatHeader">
-        <img src={`${process.env.REACT_APP_API_URL}${selectionUser.user_image}`} className={style.chatFoto} id="chatFoto" alt="Foto de Perfil" />
+        <img src={`${baseUrl}${selectionUser.user_image}`} className={style.chatFoto} id="chatFoto" alt="Foto de Perfil" />
         <p className={style.chatNome} id="chatNome">{selectionUser.user_name}</p>
       </div>
       <div className={style.chatMensagens} id="chatMensagens" ref={chatContainerRef}>

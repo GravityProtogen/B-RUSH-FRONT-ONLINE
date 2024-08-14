@@ -26,7 +26,7 @@ const Config = () => {
     const fetchData = async () =>{
       try{
       const token = Cookies.get("token");
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/perfil`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +58,7 @@ const Config = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         try{
-         const response = axios.delete(`${process.env.REACT_APP_API_URL}/users/deletar`, {
+         const response = axios.delete(`${import.meta.env.VITE_API_URL}/users/deletar`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -100,7 +100,7 @@ const Config = () => {
         <>
         <NavBar user={data}/>
         <div className={classes.foto}>
-          <img src={`${process.env.REACT_APP_API_URL}${data.user_image}`} />
+          <img src={`${import.meta.env.VITE_API_URL}${data.user_image}`} />
         </div>
         <div className={classes.buttoncontainer}>
           <button onClick={() => navigate('/info') } class="infos">

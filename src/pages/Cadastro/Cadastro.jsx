@@ -105,12 +105,13 @@ const Cadastro = () => {
 
 
     try{
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/criando`, formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/users/criando`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
       
+      console.log(response)
 
       if(response.status === 200){
         Toast.fire({
@@ -124,6 +125,7 @@ const Cadastro = () => {
       }
       }
     catch(error){
+      console.log(error)
         if(error.response.data.detail === "Email já cadastrado"){
           Toast.fire({
             icon: 'error',

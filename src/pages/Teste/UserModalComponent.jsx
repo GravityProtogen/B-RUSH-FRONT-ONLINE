@@ -20,7 +20,7 @@ const Teste = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/perfil`, {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -37,7 +37,7 @@ const Teste = () => {
     const fetchUsers = async (currentUser) => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/users/pegarAll`,
+          `${import.meta.env.VITE_API_URL}/users/pegarAll`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const Teste = () => {
           filteredUsers.map(async (user) => {
             try {
               const unreadResponse = await axios.get(
-                `${process.env.REACT_APP_LINK_API}/users/read_count`,
+                `${import.meta.env.VITE_API_URL}/users/read_count`,
                 {
                   params: { user_id: user.id },
                   headers: {
@@ -112,7 +112,7 @@ const Teste = () => {
               >
                 <div className={style.foto}>
                   <img
-                    src={`${process.env.REACT_APP_LINK_API}${user.user_image}`}
+                    src={`${import.meta.env.VITE_API_URL}${user.user_image}`}
                     alt={user.name}
                     className={style.foto}
                   />

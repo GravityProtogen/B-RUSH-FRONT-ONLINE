@@ -38,7 +38,7 @@ const home = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/login/login`,
+        `${import.meta.env.VITE_API_URL}/login/login`,
         formsData
       );
       
@@ -47,7 +47,7 @@ const home = () => {
       if (response.status === 200) {
         const token = response.data.access;
         Cookies.set("token", token);
-        if (response.data.mensagem === "Código de verificação enviado") {
+        if (response.data.mensagem === "Usuário não confirmado") {
           navigate("/notification");
         } else {
           setLoggedIn(true);

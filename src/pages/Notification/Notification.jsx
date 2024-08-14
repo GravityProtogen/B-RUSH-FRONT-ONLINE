@@ -56,7 +56,7 @@ const Notification = () => {
 
   const isClicked = async () => {
     const token = Cookies.get("token");
-      await axios.post('http://127.0.0.1:8000/users/enviar_codigo', {}, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/users/enviar_codigo`, {}, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -74,7 +74,7 @@ const Notification = () => {
     try {
       setIsLoading(true);
       const response = await axios.post(
-        `http://127.0.0.1:8000/users/verificar_codigo/${otp}`, {}, {
+        `${import.meta.env.VITE_API_URL}/users/verificar_codigo/${otp}`, {}, {
           headers: {
             Authorization: `Bearer ${token}`,
           }

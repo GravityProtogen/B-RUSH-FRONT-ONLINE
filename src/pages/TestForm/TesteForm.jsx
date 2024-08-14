@@ -17,7 +17,7 @@ const TesteForm = () => {
 
   useEffect(() => {
     try{
-      const response = axios.get("http://localhost:8000/chat/messages", {
+      const response = axios.get(`${import.meta.env.VITE_API_URL}/chat/messages`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -27,7 +27,7 @@ const Perfil = () => {
       if (token) {
         try {
           const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/users/perfil/${user_name}`,
+            `${import.meta.env.VITE_API_URL}/users/perfil/${user_name}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ const Perfil = () => {
       if (token) {
         try {
           const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/users/perfil`,
+            `${import.meta.env.VITE_API_URL}/users/perfil`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -101,11 +101,11 @@ const Perfil = () => {
         <section>
           <div className={classes.bannerContainer}>
             <div className={classes.imgbanner}>
-              <img src={`${process.env.REACT_APP_API_URL}${perfilData.user_banner}`} className={classes.bannerimg} />
+              <img src={`${import.meta.env.VITE_API_URL}${perfilData.user_banner}`} className={classes.bannerimg} />
             </div>
             <div className={classes.profileImage}>
               <img
-                src={`${process.env.REACT_APP_API_URL}${perfilData.user_image} `}
+                src={`${import.meta.env.VITE_API_URL}${perfilData.user_image} `}
                 id={classes.profile2}
                 alt="Icone de Perfil"
               />
@@ -168,7 +168,7 @@ const Perfil = () => {
           <div className={classes.infoPlayerContainer}>
             <div className={classes.profilePicture}>
               <img
-                src={`${process.env.REACT_APP_API_URL}${perfilData.user_image}`}
+                src={`${import.meta.env.VITE_API_URL}${perfilData.user_image}`}
                 alt="Banner"
                 id={classes.fallen}
               />

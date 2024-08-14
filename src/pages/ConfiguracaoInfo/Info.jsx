@@ -49,7 +49,7 @@ const Info = () => {
       };
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/users/perfil`,
+          `${import.meta.env.VITE_API_URL}/users/perfil`,
           config
         );
         setData(response.data);
@@ -83,7 +83,7 @@ const Info = () => {
 
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/users/atualizar/${existingData.user_id}`,
+        `${import.meta.env.VITE_API_URL}/users/atualizar/${existingData.user_id}`,
         formsData,
         {
           headers: {
@@ -134,7 +134,7 @@ const userIdade = (perfil) => {
           <div className={classes.containerGeral}>
             <div className={classes.firstContainer}>
               <div className={classes.pfpContainer}>
-                <img className={classes.pfp} src={`${process.env.REACT_APP_API_URL}${data.user_image}`} />
+                <img className={classes.pfp} src={`${import.meta.env.VITE_API_URL}${data.user_image}`} />
               </div>
                 <h2 id={classes.nome}>{data.user_name} </h2>
               <form id={classes.emailesenha}>

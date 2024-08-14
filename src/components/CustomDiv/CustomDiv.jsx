@@ -10,7 +10,7 @@ const CustomDiv = () => {
     useEffect(() =>{
         const token = Cookies.get('token');
         const fetchData = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/users/perfil`, {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
                 headers:{
                     Authorization: `Bearer ${token}`
                 }
@@ -45,7 +45,7 @@ const CustomDiv = () => {
       <div className={classes.pfpContainer}>
         <img
           className={classes.pfp}
-          src={`${process.env.REACT_APP_API_URL}${data.user_image}`}
+          src={`${import.meta.env.VITE_API_URL}${data.user_image}`}
         />
       </div>
       <div id={classes.nome}>

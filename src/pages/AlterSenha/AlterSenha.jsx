@@ -56,7 +56,7 @@ const AlterSenha = () => {
       };
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/users/perfil`,
+          `${import.meta.env.VITE_API_URL}/users/perfil`,
           config
         );
         setData(response.data);
@@ -96,7 +96,7 @@ const AlterSenha = () => {
 
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_LINK_API}/users/atualizar_senha`,
+        `${import.meta.env.VITE_API_URL}/users/atualizar_senha`,
         change_password,
         {
           headers: {
@@ -127,7 +127,7 @@ const AlterSenha = () => {
         <>
           <NavBar user={data} />
           <div className={classes.foto}>
-            <img src={`${process.env.REACT_APP_API_URL}${data.user_image}`} />
+            <img src={`${import.meta.env.VITE_API_URL}${data.user_image}`} />
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}

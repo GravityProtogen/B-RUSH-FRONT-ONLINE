@@ -20,7 +20,7 @@ const UserModalComponent = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/users/perfil", {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/perfil`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -37,7 +37,7 @@ const UserModalComponent = () => {
     const fetchUsers = async (currentUser) => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/users/pegarAll",
+          `${import.meta.env.VITE_API_URL}/users/pegarAll`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const UserModalComponent = () => {
           filteredUsers.map(async (user) => {
             try {
               const unreadResponse = await axios.get(
-                `http://127.0.0.1:8000/users/read_count`,
+                `${import.meta.env.VITE_API_URL}/users/read_count`,
                 {
                   params: { user_id: user.id },
                   headers: {
@@ -112,7 +112,7 @@ const UserModalComponent = () => {
               >
                 <div className={style.foto}>
                   <img
-                    src={`http://127.0.0.1:8000${user.user_image}`}
+                    src={`${import.meta.env.VITE_API_URL}${user.user_image}`}
                     alt={user.name}
                     className={style.foto}
                   />

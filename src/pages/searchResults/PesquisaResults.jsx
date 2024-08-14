@@ -17,7 +17,7 @@ const PesquisaResults = () => {
         if(token){
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/users/pesquisar/${user_firstName}`, {
+          `${import.meta.env.VITE_API_URL}/users/pesquisar/${user_firstName}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -41,7 +41,7 @@ const PesquisaResults = () => {
       if(token){
         try {
           const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/users/perfil`,
+            `${import.meta.env.VITE_API_URL}/users/perfil`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -68,7 +68,7 @@ const PesquisaResults = () => {
             <li key={result.user_id}>
             <a className={classes.manipulate} href={`/perfil/${result.user_name}`}>
               <div className={classes.imageDiv}>
-                <img src={`${process.env.REACT_APP_API_URL}${result.user_image}`} alt="Imagem do Usuario" />
+                <img src={`${import.meta.env.VITE_API_URL}${result.user_image}`} alt="Imagem do Usuario" />
               </div>
             <div className={classes.textControl}>
             <label>Usuario: {result.user_firstName}</label>
