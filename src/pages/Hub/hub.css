@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh; /* Ensure the body takes full height */
+    display: flex;
+    flex-direction: column; /* Ensure footer stays at the bottom */
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #a32cc4; /* Purple color */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex: 1; /* Allow the container to take available space */
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.sidebar-left {
+    width: 20%;
+    height:35%;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+.profile-mini{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagemperfil{
+    width: 55%;
+    height: 13rem;
+    border: 2px solid #a32cc4; /* Purple border */
+    margin-bottom: 10px;
+    display: flex;
+    justify-self: center;
+}
+.imagemperfil img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.imagem {
+    width: 100%;
+    height: 25rem;
+    border: 2px solid #a32cc4; /* Purple border */
+    margin-bottom: 10px;
+}
+.imagem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-mini h2 {
+    color: #a32cc4; /* Purple color */
+}
+
+.feed {
+    width: 55%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 0 15px;
+}
+
+.feed .post {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.feed .post h3 {
+    color: #a32cc4; /* Purple color */
+    margin-bottom: 10px;
+}
+
+
+
+
+.sidebar-right {
+    width: 20%;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #1a1a1a;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
